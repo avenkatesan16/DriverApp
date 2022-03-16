@@ -12,6 +12,7 @@ Feature: Login Logout functionality
     And validate if logout is done successfully
     And Update execution status for "<Functionality>" functionality
     #And Close the application
+    #closing handled in Hooks
 
     Examples: 
       | OSVersion | username | password | Functionality            |
