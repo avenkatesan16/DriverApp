@@ -11,6 +11,7 @@ Feature: Login Logout functionality
     Then I click logout
     And validate if logout is done successfully
     And Update execution status for "<Functionality>" functionality
+    #Then I email the report
     #And Close the application
     #closing handled in Hooks
 
@@ -65,6 +66,7 @@ Feature: Login Logout functionality
     #TC18
     And validate if logout is done successfully
     And Update execution status for "<Functionality>" functionality
+    Then I email the report
     #And Close the application
 
     Examples: 

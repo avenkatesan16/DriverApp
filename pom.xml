@@ -110,6 +110,11 @@
 			<artifactId>commons-lang3</artifactId>
 			<version>3.12.0</version>
 		</dependency>
+		<dependency>
+			<groupId>com.sun.mail</groupId>
+			<artifactId>javax.mail</artifactId>
+			<version>1.5.5</version>
+		</dependency>
 
 	</dependencies>
 
@@ -123,6 +128,24 @@
 					<configuration>
 						<includes>**/*Runner.java</includes>
 					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>exec-maven-plugin</artifactId>
+					<version>1.6.0</version>
+					<executions>
+						<execution>
+							<id>first-execution</id>
+							<phase>install</phase>
+							<goals>
+								<goal>java</goal>
+							</goals>
+							<configuration>
+								<classpathScope>test</classpathScope>
+								<mainClass>com.aucdt.edu.util.SendEmailReportByTakingScreenShot</mainClass>
+							</configuration>
+						</execution>
+					</executions>
 				</plugin>
 			</plugins>
 		</pluginManagement>
