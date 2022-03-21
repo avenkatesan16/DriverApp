@@ -59,7 +59,7 @@
           </li>
             <li class="m-r-10">
                 <a href="#">
-                    <span class="badge badge-primary">Mar 17, 2022 11:30:53 PM</span>
+                    <span class="badge badge-primary">Mar 21, 2022 04:07:51 PM</span>
                 </a>
             </li>
         </ul>
@@ -127,7 +127,7 @@
 					</a>
 					<ul id="tag-toggle" class="dropdown-menu dropdown-md p-v-0">
 						<a class="dropdown-item" href="#">@seed</a>
-						<a class="dropdown-item" href="#">@loginLogoutFunctionality</a>
+						<a class="dropdown-item" href="#">@endToEndloginLogoutFunctionality</a>
 					</ul>
 				</li>
 			</ul>
@@ -144,8 +144,8 @@
 					<div class="open-test">
 						<div class="test-detail">
 							<p class="name">Login Logout functionality</p>
-							<p class="duration text-sm">0h 0m 49s+846ms</p>
-							<span class="datetime">23:30:54 PM</span>
+							<p class="duration text-sm">0h 5m 22s+340ms</p>
+							<span class="datetime">16:07:52 PM</span>
 						</div>
 					</div>
 					<div class="test-contents d-none">
@@ -153,9 +153,9 @@
 							<div class="p-v-10 d-inline-block">
 								<div class="info">
 									<h5 class="test-status text-pass">Login Logout functionality</h5>
-									<span class='badge badge-success'>03.17.2022 23:30:54</span>
-									<span class='badge badge-danger'>03.17.2022 23:31:44</span>
-									<span class='badge badge-default'>0h 0m 49s+846ms</span>
+									<span class='badge badge-success'>03.21.2022 16:07:52</span>
+									<span class='badge badge-danger'>03.21.2022 16:13:14</span>
+									<span class='badge badge-default'>0h 5m 22s+340ms</span>
 								</div>
 								<div class="m-t-15">
 			<span class="badge badge-pill badge-default"><i class="fa fa-tag"></i> @seed</span>
@@ -170,7 +170,7 @@
 	<div class="card">
 		<div class="card-header" role="tab">
 			<div class="card-title pl-3">
-				<div class="node">Validate login and logout functionality</div>
+				<div class="node">Validate End to End login and logout functionality</div>
 				<div class="status-avatar float-left pass-bg">
 					<i class="fa fa-check text-white"></i>
 				</div>
@@ -180,32 +180,81 @@
 						<div class="card-body l1">
 							<div class="card-header" role="tab">
 								<div class="card-title outline-child">
-									<div class="node">Validate login and logout functionality</div>
+									<div class="node">Validate End to End login and logout functionality</div>
 									<div class="status-avatar float-left pass-bg">
 										<i class="fa fa-check text-white"></i>
 									</div>
 								</div>
 							</div>
 							<div class="card-body collapse mt-3">
-									<div class="d-flex align-items-center justify-content-start when" title="Steps.LoginLogoutStepDef.i_log_into_the_application_in_for(java.lang.String,java.lang.String)">
+									<div class="d-flex align-items-center justify-content-start given" title="Steps.LoginLogoutStepDef.i_log_into_the_application_in_for(java.lang.String,java.lang.String)">
 										<span class="alert-icon pass-bg">
 											<i class="fa fa-check text-white"></i>
 										</span>
-										<span>When I log into the application in "android" for "LoginLogoutFunctionality"</span>
+										<span>Given I log into the application in "android" for "EndtoEndLoginLogoutFunctionality"</span>
 									</div>
 				<div class="details"></div>
-									<div class="d-flex align-items-center justify-content-start and" title="Steps.LoginLogoutStepDef.i_validate_login_page_objects()">
+									<div class="d-flex align-items-center justify-content-start and" title="Steps.LoginLogoutStepDef.validate_splash_screen_displayed()">
 										<span class="alert-icon pass-bg">
 											<i class="fa fa-check text-white"></i>
 										</span>
-										<span>And I validate login page objects</span>
+										<span>And validate if splash screen is displayed</span>
+									</div>
+				<div class="details"></div>
+									<div class="d-flex align-items-center justify-content-start when" title="Steps.LoginLogoutStepDef.i_click_login_button()">
+										<span class="alert-icon pass-bg">
+											<i class="fa fa-check text-white"></i>
+										</span>
+										<span>When I click login button</span>
+									</div>
+				<div class="details"></div>
+									<div class="d-flex align-items-center justify-content-start and" title="Steps.LoginLogoutStepDef.validate_hide_show_displayed()">
+										<span class="alert-icon pass-bg">
+											<i class="fa fa-check text-white"></i>
+										</span>
+										<span>And validate if hide or show is displayed</span>
+									</div>
+				<div class="details"></div>
+									<div class="d-flex align-items-center justify-content-start and" title="Steps.LoginLogoutStepDef.validate_skip_username_pwd_error_msg_displayed()">
+										<span class="alert-icon pass-bg">
+											<i class="fa fa-check text-white"></i>
+										</span>
+										<span>And validate if skip username or password error msg is displayed</span>
+									</div>
+				<div class="details"></div>
+									<div class="d-flex align-items-center justify-content-start and" title="Steps.LoginLogoutStepDef.validate_blank_username_valid_pwd_error_msg_displayed(java.lang.String)">
+										<span class="alert-icon pass-bg">
+											<i class="fa fa-check text-white"></i>
+										</span>
+										<span>And validate if blank username and valid pwd "abc" error msg is dispalyed</span>
+									</div>
+				<div class="details"></div>
+									<div class="d-flex align-items-center justify-content-start and" title="Steps.LoginLogoutStepDef.validate_valid_username_blank_pwd_error_msg_displayed(java.lang.String)">
+										<span class="alert-icon pass-bg">
+											<i class="fa fa-check text-white"></i>
+										</span>
+										<span>And validate if valid username "avenkatesan@cantaloupe.com" and blank pwd error msg is dispalyed</span>
+									</div>
+				<div class="details"></div>
+									<div class="d-flex align-items-center justify-content-start and" title="Steps.LoginLogoutStepDef.validate_copyright_text_displayed()">
+										<span class="alert-icon pass-bg">
+											<i class="fa fa-check text-white"></i>
+										</span>
+										<span>And validate if copyright text and version is displayed</span>
+									</div>
+				<div class="details"></div>
+									<div class="d-flex align-items-center justify-content-start and" title="Steps.LoginLogoutStepDef.validate_error_msg_logged_blank_Spaces_values_displayed(java.lang.String,java.lang.String)">
+										<span class="alert-icon pass-bg">
+											<i class="fa fa-check text-white"></i>
+										</span>
+										<span>And validate if user gets error msg when logged in with blank spaces in values with "a venkatesan@cantaloupe.com" and "ab cde"</span>
 									</div>
 				<div class="details"></div>
 									<div class="d-flex align-items-center justify-content-start then" title="Steps.LoginLogoutStepDef.i_enter_username_and_password(java.lang.String,java.lang.String)">
 										<span class="alert-icon pass-bg">
 											<i class="fa fa-check text-white"></i>
 										</span>
-										<span>Then I enter "abc@abc.com" and "abc"</span>
+										<span>Then I enter "avenkatesan@cantaloupe.com" and "abc"</span>
 									</div>
 				<div class="details"></div>
 									<div class="d-flex align-items-center justify-content-start and" title="Steps.LoginLogoutStepDef.i_click_login_button()">
@@ -222,11 +271,39 @@
 										<span>And I verify operator text in "android"</span>
 									</div>
 				<div class="details"></div>
-									<div class="d-flex align-items-center justify-content-start then" title="Steps.LoginLogoutStepDef.i_click_logout()">
+									<div class="d-flex align-items-center justify-content-start then" title="Steps.LoginLogoutStepDef.i_click_logout_alone()">
 										<span class="alert-icon pass-bg">
 											<i class="fa fa-check text-white"></i>
 										</span>
-										<span>Then I click logout</span>
+										<span>Then I click logout alone</span>
+									</div>
+				<div class="details"></div>
+									<div class="d-flex align-items-center justify-content-start and" title="Steps.LoginLogoutStepDef.validate_logout_yes_no_displayed()">
+										<span class="alert-icon pass-bg">
+											<i class="fa fa-check text-white"></i>
+										</span>
+										<span>And validate logout yes or no is displayed</span>
+									</div>
+				<div class="details"></div>
+									<div class="d-flex align-items-center justify-content-start and" title="Steps.LoginLogoutStepDef.validate_logout_pop_functionality(java.lang.String)">
+										<span class="alert-icon pass-bg">
+											<i class="fa fa-check text-white"></i>
+										</span>
+										<span>And validate logout popup "No" functionality</span>
+									</div>
+				<div class="details"></div>
+									<div class="d-flex align-items-center justify-content-start then" title="Steps.LoginLogoutStepDef.i_click_logout_alone()">
+										<span class="alert-icon pass-bg">
+											<i class="fa fa-check text-white"></i>
+										</span>
+										<span>Then I click logout alone</span>
+									</div>
+				<div class="details"></div>
+									<div class="d-flex align-items-center justify-content-start and" title="Steps.LoginLogoutStepDef.validate_logout_pop_functionality(java.lang.String)">
+										<span class="alert-icon pass-bg">
+											<i class="fa fa-check text-white"></i>
+										</span>
+										<span>And validate logout popup "Yes" functionality</span>
 									</div>
 				<div class="details"></div>
 									<div class="d-flex align-items-center justify-content-start and" title="Steps.LoginLogoutStepDef.validate_if_logout_is_done_successfully()">
@@ -240,7 +317,14 @@
 										<span class="alert-icon pass-bg">
 											<i class="fa fa-check text-white"></i>
 										</span>
-										<span>And Update execution status for "LoginLogoutFunctionality" functionality</span>
+										<span>And Update execution status for "EndtoEndLoginLogoutFunctionality" functionality</span>
+									</div>
+				<div class="details"></div>
+									<div class="d-flex align-items-center justify-content-start then" title="Steps.LoginLogoutStepDef.i_email_the_report()">
+										<span class="alert-icon pass-bg">
+											<i class="fa fa-check text-white"></i>
+										</span>
+										<span>Then I email the report</span>
 									</div>
 				<div class="details"></div>
 							</div>
@@ -323,7 +407,7 @@
 											<i class="fa fa-check text-white"></i>
 										</div>
 									</td>
-									<td>23:30:54 PM</td>
+									<td>16:07:52 PM</td>
 									<td class='linked' test-id='1'>
 										Login Logout functionality
 									</td>
@@ -334,11 +418,11 @@
 											<i class="fa fa-check text-white"></i>
 										</div>
 									</td>
-									<td>23:30:54 PM</td>
+									<td>16:07:52 PM</td>
 									<td class='linked' test-id='3'>
-										Validate login and logout functionality
+										Validate End to End login and logout functionality
 										<div class="">
-											<span class="badge badge-default">Login Logout functionality.Validate login and logout functionality</span>
+											<span class="badge badge-default">Login Logout functionality.Validate End to End login and logout functionality</span>
 										</div>
 									</td>
 								</tr>
@@ -349,7 +433,7 @@
 				<li class="test-item">
 					<div class="open-test">
 						<div class="test-detail">
-							<p class="name">@loginLogoutFunctionality</p>
+							<p class="name">@endToEndloginLogoutFunctionality</p>
 							<p class="duration text-sm">2 tests</p>
 							<span class="datetime">
 							<span class='badge badge-success'>2</span>
@@ -361,7 +445,7 @@
 					</div>
 					<div class="test-contents d-none">
 						<div class="info">
-							<h4>@loginLogoutFunctionality</h4>
+							<h4>@endToEndloginLogoutFunctionality</h4>
 							<span status="pass" class='badge badge-success'>2 passed</span>
 							
 							
@@ -382,11 +466,11 @@
 											<i class="fa fa-check text-white"></i>
 										</div>
 									</td>
-									<td>23:30:54 PM</td>
+									<td>16:07:52 PM</td>
 									<td class='linked' test-id='2'>
-										Validate login and logout functionality
+										Validate End to End login and logout functionality
 										<div class="">
-											<span class="badge badge-default">Login Logout functionality.Validate login and logout functionality</span>
+											<span class="badge badge-default">Login Logout functionality.Validate End to End login and logout functionality</span>
 										</div>
 									</td>
 								</tr>
@@ -396,11 +480,11 @@
 											<i class="fa fa-check text-white"></i>
 										</div>
 									</td>
-									<td>23:30:54 PM</td>
+									<td>16:07:52 PM</td>
 									<td class='linked' test-id='3'>
-										Validate login and logout functionality
+										Validate End to End login and logout functionality
 										<div class="">
-											<span class="badge badge-default">Login Logout functionality.Validate login and logout functionality</span>
+											<span class="badge badge-default">Login Logout functionality.Validate End to End login and logout functionality</span>
 										</div>
 									</td>
 								</tr>
@@ -482,7 +566,7 @@
 					</div>
 				</div>
 				<div class="card-footer">
-					<div><small data-tooltip='100%'><b>8</b> steps passed</small></div>
+					<div><small data-tooltip='100%'><b>20</b> steps passed</small></div>
 					<div>
 						<small data-tooltip='0%'><b>0</b> steps failed, 
 						<b>0</b> skipped, <b data-tooltip='0%'>0</b> others
@@ -537,7 +621,7 @@
 					<div class="media justify-content-between">
 						<div class="card-header">
 							<h6 class="card-title">Start</h6>
-							<h4 class="font-weight-light mt-4">Mar 17, 2022 11:30:53 PM</h4>
+							<h4 class="font-weight-light mt-4">Mar 21, 2022 04:07:51 PM</h4>
 							<span class="text-semibold text-success font-size-15">
 						</div>
 						<div class="align-self-end">
@@ -553,7 +637,7 @@
 					<div class="media justify-content-between">
 						<div class="card-header">
 							<h6 class="card-title">Duration</h6>
-							<h4 class="font-weight-light mt-4">0h 1m 6s+184ms</h4>
+							<h4 class="font-weight-light mt-4">0h 5m 29s+792ms</h4>
 							<span class="text-semibold font-size-15">
 						</div>
 						<div class="align-self-end">
@@ -606,7 +690,7 @@
 								</td>
 							</tr>
 							<tr>
-								<td>@loginLogoutFunctionality</td>
+								<td>@endToEndloginLogoutFunctionality</td>
 								<td>2</td>
 								<td>0</td>
 								<td>0</td>
@@ -641,8 +725,8 @@
 		infoChild: 0,
 		debugChild: 0,
 		exceptionsChild: 0,
-		grandChildCount: 8,
-		passGrandChild: 8,
+		grandChildCount: 20,
+		passGrandChild: 20,
 		failGrandChild: 0,
 		fatalGrandChild: 0,
 		errorGrandChild: 0,
@@ -651,8 +735,8 @@
 		infoGrandChild: 0,
 		debugGrandChild: 0,
 		exceptionsGrandChild: 0,
-		eventsCount: 8,
-		passEvents: 8,
+		eventsCount: 20,
+		passEvents: 20,
 		failEvents: 0,
 		fatalEvents: 0,
 		errorEvents: 0,
@@ -665,7 +749,7 @@
 </script>
 <script>
 	var timeline = {
-	        "Login Logout functionality":49.846
+	        "Login Logout functionality":322.34
 	};
 </script>
                 </div>

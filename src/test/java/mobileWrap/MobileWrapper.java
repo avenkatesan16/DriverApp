@@ -105,7 +105,7 @@ public class MobileWrapper extends Reporter {
 
 				// Set other BrowserStack capabilities
 				caps.setCapability("project",propertyFile.getProjectName());
-				caps.setCapability("build", propertyFile.getAndroidBuild());
+				caps.setCapability("build", "Android Execution "+propertyFile.getAndroidBuildVersion());
 
 				// Initialise the remote Webdriver using BrowserStack remote URL
 				// and desired capabilities defined above
