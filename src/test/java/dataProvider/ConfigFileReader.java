@@ -10,7 +10,7 @@ public class ConfigFileReader {
 	
 	private Properties properties;
 	private final String propertyFilePath= "configs//Configuration.properties";
-
+private static String androidAppVersion;
 	
 	public ConfigFileReader(){
 		BufferedReader reader;
@@ -107,5 +107,15 @@ public class ConfigFileReader {
 		else throw new RuntimeException("Broswerstack URL not specified in the Configuration.properties file.");		
 	}
 	
+	public String getAndroidBuildVersion(){
+		
+		String androidAppURL = properties.getProperty("androidAppURL");
+		if(androidAppURL.equalsIgnoreCase("")) {
+			androidAppVersion="0.0.3";
+			return androidAppVersion;
+		}
+		
+		else throw new RuntimeException("Android App URL is not specified in the Configuration.properties file.");		
+	}
 	
 }

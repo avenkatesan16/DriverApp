@@ -2,28 +2,17 @@ package Steps;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
-import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.testng.Reporter;
-import com.google.common.io.Files;
 
-
-import io.cucumber.java.Scenario;
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.ios.IOSDriver;
+import Pages.EmailSend;
 import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
-import io.cucumber.java.Before;
-import io.github.bonigarcia.wdm.WebDriverManager;
+import io.cucumber.java.Scenario;
 import mobileWrap.MobileWrapper;
 
 public class Hooks extends MobileWrapper {
@@ -32,6 +21,7 @@ public class Hooks extends MobileWrapper {
 //	public static AndroidDriver<WebElement> Androiddriver;
 //	public static IOSDriver<WebElement> iOSDriver;
 	JavascriptExecutor jse;
+//	EmailSend email=new EmailSend();
 
 //	TestContext testContext;
 //
@@ -78,7 +68,11 @@ public class Hooks extends MobileWrapper {
 		scenario.attach(getByteScreenshot("iOS"), "img/png", "test execution");
 		}
 		else if(Androiddriver!=null) {
-			scenario.attach(getByteScreenshot("android"), "img/png", scenario.getName());	
+			scenario.attach(getByteScreenshot("android"), "img/png", scenario.getName());
+			
+//			TakesScreenshot ts = (TakesScreenshot) Androiddriver;
+//			byte[] src = ts.getScreenshotAs(OutputType.BYTES);
+//			scenario.attach(src, "img/png", scenario.getName());
 		}
 	}
 
@@ -121,6 +115,7 @@ public class Hooks extends MobileWrapper {
 			try {
 				Androiddriver.closeApp();
 				Androiddriver.quit();
+//				EmailSend.emailSend();
 
 			} catch (Exception e) {
 			}
@@ -135,7 +130,7 @@ public class Hooks extends MobileWrapper {
 
 		} else if (platform.equalsIgnoreCase("android")) {
 			File src = ((TakesScreenshot) Androiddriver).getScreenshotAs(OutputType.FILE);
-			String path = System.getProperty("user.dir")+"/test-output/Screenshots/" + src.getName();
+			String path = System.getProperty("user.dir")+"/test-output/ScreenshotScenarios/" + src.getName();
             org.apache.commons.io.FileUtils.copyFile(src, new File(path));
 			FileContent = FileUtils.readFileToByteArray(new File(path));
 		}

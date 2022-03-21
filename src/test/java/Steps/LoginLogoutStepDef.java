@@ -1,11 +1,14 @@
 package Steps;
 
+import java.io.UnsupportedEncodingException;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import Pages.EmailSend;
 import Pages.LoginLogoutPageAndroid;
 import Pages.LoginLogoutPageiOS;
 import io.cucumber.java.en.Given;
@@ -558,5 +561,11 @@ public class LoginLogoutStepDef extends AppSpecificMethods{
 		}
 
 	}
+	
+	@Then("I email the report")
+	public void i_email_the_report() throws UnsupportedEncodingException, InterruptedException  {
+		EmailSend.emailSend();
+	}
 
+	 
 }
