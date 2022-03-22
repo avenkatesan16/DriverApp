@@ -21,16 +21,8 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-
-import io.cucumber.java.After;
-
 public class EmailSend {
 
-//	@BeforeClass
-//	@AfterClass
-//	public static void main(String[] args) throws UnsupportedEncodingException {
 		public static void emailSend() throws UnsupportedEncodingException, InterruptedException {
 		Properties props = new Properties();
 

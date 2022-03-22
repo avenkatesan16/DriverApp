@@ -1,60 +1,46 @@
 package Pages;
 
-import mobileWrap.AppSpecificMethods;
+import mobileWrap.MobileWrapper;
 
-public class RoutePageAndroid extends AppSpecificMethods {
+public class RoutePageAndroid extends MobileWrapper {
 
 	String route = "(//android.widget.TextView[@content-desc=\"Text\"])[2]";
 	String operator = "(//android.widget.TextView[@content-desc=\"Text\"])[1]";
 	String routesearch = "//android.widget.EditText[@content-desc=\"Item Search\"]";
-	String routefilter="(//android.widget.TextView[@content-desc=\"Text\"])[5]";
-	String inactiveRouteErrorMsg="";
-	
-	
-	//Click route filter text
-			public RoutePageAndroid clickOperator() {
-				click("xpath", operator);
+	String routefilter = "(//android.widget.TextView[@content-desc=\"Text\"])[5]";
+	String inactiveRouteErrorMsg = "";
 
-				return this;
-			}
-	
-	
-	
-	//Click route filter text
-		public RoutePageAndroid clickRoutefilter() {
-			click("xpath", routefilter);
+	public RoutePageAndroid clickOperator() {
+		click("xpath", operator);
 
-			return this;
-		}
-	
-	
-	//Verify the Route Filter Successfully
-		public RoutePageAndroid VerifyInactiveRoutefilterDrpDwnPresent() {
-		
-			verifyText("JP nagar","xpath", routefilter);
-		
 		return this;
 	}
-		
-		//Verify the Route Filter Successfully
-				public RoutePageAndroid VerifyActiveRoutefilterPresent(String route) {
-				
-					verifyText(route,"xpath", routefilter);
-				
-				return this;
-			}
-	
-	
-	// Enter Search Item
-				public RoutePageAndroid enterSearchItem(String data) {
-					enterValue(data, "xpath", routesearch);
 
-					return this;
-				}
-	
-	
-	
-	// Verify routesearch
+	public RoutePageAndroid clickRoutefilter() {
+		click("xpath", routefilter);
+
+		return this;
+	}
+
+	public RoutePageAndroid VerifyInactiveRoutefilterDrpDwnPresent() {
+
+		verifyText("JP nagar", "xpath", routefilter);
+
+		return this;
+	}
+
+	public RoutePageAndroid VerifyActiveRoutefilterPresent(String route) {
+
+		verifyText(route, "xpath", routefilter);
+
+		return this;
+	}
+
+	public RoutePageAndroid enterSearchItem(String data) {
+		enterValue(data, "xpath", routesearch);
+
+		return this;
+	}
 
 	public RoutePageAndroid verifyRouteSearch() {
 		eleIsDisplayed("xpath", routesearch);
@@ -62,16 +48,12 @@ public class RoutePageAndroid extends AppSpecificMethods {
 		return this;
 	}
 
-	// Verify Operator Back Text
-
 	public RoutePageAndroid VerifyOperatorBackButton() {
 
 		verifyText("Operator", "xpath", operator);
 
 		return this;
 	}
-
-	// Verify Route Text
 
 	public RoutePageAndroid VerifyRouteText() {
 

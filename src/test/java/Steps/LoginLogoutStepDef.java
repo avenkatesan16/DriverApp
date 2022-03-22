@@ -2,11 +2,7 @@ package Steps;
 
 import java.io.UnsupportedEncodingException;
 
-import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 import Pages.EmailSend;
 import Pages.LoginLogoutPageAndroid;
@@ -14,66 +10,23 @@ import Pages.LoginLogoutPageiOS;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import mobileWrap.AppSpecificMethods;
+import mobileWrap.MobileWrapper;
 
-public class LoginLogoutStepDef extends AppSpecificMethods{
+public class LoginLogoutStepDef extends MobileWrapper {
 	public static String osVersion;
 	public static String functional;
 	JavascriptExecutor jse;
 
-//	@Given("I open google page")
-//	public void i_open_google_page() {
-//		Hooks.driver.get("https://www.google.com/");
-//	}
-//
-//	@When("I check for the google page title")
-//	public void i_check_for_the_google_page_title() {
-//		Assert.assertEquals("Google", Hooks.driver.getTitle());
-//	}
-//
-//	@Given("I open bing page")
-//	public void i_open_bing_page() {
-//		Hooks.driver.get("https://www.bing.com/");
-//	}
-//
-//	@When("I check for the bing page title")
-//	public void i_check_for_the_bing_page_title() {
-//		Assert.assertEquals("Bing", Hooks.driver.getTitle());
-//	}
-//
-//	@Then("^I search the \"([^\"]*)\" in google step$")
-//	public void i_search_the_keyword_in_google_step(String keyword) throws InterruptedException {
-//		Hooks.driver.findElement(By.name("q")).sendKeys(keyword);
-//		Hooks.driver.findElement(By.name("q")).submit();
-//		Thread.sleep(1000);
-//		Assert.assertEquals("My Title", Hooks.driver.getTitle());
-//	}
-//	
-//	@Then("^I search the \"([^\"]*)\" in bing step$")
-//	public void i_search_the_keyword_in_bing_step(String keyword) throws InterruptedException {
-//		Hooks.driver.findElement(By.name("q")).sendKeys(keyword);
-//		Hooks.driver.findElement(By.name("q")).submit();
-//		Thread.sleep(1000);
-//	}
-//	
-//	@Given("I skipping this step")
-//	public void i_skipping_this_step() {
-//		System.out.println("SKIP");
-//	}
-	
-	@When("I log into the application in {string} for {string}")
+	@Given("I log into the application in {string} for {string}")
 	public void i_log_into_the_application_in_for(String OSVersion, String functionality) {
 		osVersion = OSVersion;
 		functional = functionality;
 		try {
 			if (OSVersion.equalsIgnoreCase("iOS")) {
 				launchDriver(OSVersion);
-//				launchDriverRealDevice(OSVersion);
 				jse = (JavascriptExecutor) iOSdriver;
 
 			} else if (OSVersion.equalsIgnoreCase("android")) {
-//				launchDriverRealDevice(OSVersion);
 				launchDriver(OSVersion);
 				jse = (JavascriptExecutor) Androiddriver;
 
@@ -122,26 +75,12 @@ public class LoginLogoutStepDef extends AppSpecificMethods{
 			} else if (osVersion.equalsIgnoreCase("android")) {
 				new LoginLogoutPageAndroid().clickLogin();
 			}
-//			new OperatorRouteDateStepDef().getOSVersion(osVersion);
 		} catch (Exception e) {
 			closeApp(osVersion);
 			e.printStackTrace();
 		}
 	}
 
-//	@Then("I verify operator text in {string}")
-//	public void i_verify_operator_text_in(String string) {
-//		try {
-//			if (osVersion.equalsIgnoreCase("iOS")) {
-//				new LoginLogoutPageiOS().verifyOperatorText();
-//			} else if (osVersion.equalsIgnoreCase("android")) {
-//				new LoginLogoutPageAndroid().verifyOperatorText();
-//			}
-//		} catch (Exception e) {
-//			closeApp(osVersion);
-//			e.printStackTrace();
-//		}
-//	}
 
 	@Then("I click logout")
 	public void i_click_logout() {
@@ -170,7 +109,7 @@ public class LoginLogoutStepDef extends AppSpecificMethods{
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Then("validate if splash screen is displayed")
 	public void validate_splash_screen_displayed() {
 		try {
@@ -196,7 +135,7 @@ public class LoginLogoutStepDef extends AppSpecificMethods{
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Then("validate if skip username or password error msg is displayed")
 	public void validate_skip_username_pwd_error_msg_displayed() {
 		try {
@@ -208,9 +147,9 @@ public class LoginLogoutStepDef extends AppSpecificMethods{
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Then("validate if valid username {string} and incorrect pwd {string} error msg is dispalyed")
-	public void validate_valid_username_incorrect_pwd_error_msg_displayed(String name,String pwd) {
+	public void validate_valid_username_incorrect_pwd_error_msg_displayed(String name, String pwd) {
 		try {
 			if (osVersion.equalsIgnoreCase("iOS")) {
 
@@ -223,7 +162,7 @@ public class LoginLogoutStepDef extends AppSpecificMethods{
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Then("validate if blank username and valid pwd {string} error msg is dispalyed")
 	public void validate_blank_username_valid_pwd_error_msg_displayed(String pwd) {
 		try {
@@ -238,7 +177,7 @@ public class LoginLogoutStepDef extends AppSpecificMethods{
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Then("validate if valid username {string} and blank pwd error msg is dispalyed")
 	public void validate_valid_username_blank_pwd_error_msg_displayed(String name) {
 		try {
@@ -253,7 +192,7 @@ public class LoginLogoutStepDef extends AppSpecificMethods{
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Then("validate if copyright text and version is displayed")
 	public void validate_copyright_text_displayed() {
 		try {
@@ -266,9 +205,9 @@ public class LoginLogoutStepDef extends AppSpecificMethods{
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Then("validate if user gets error msg when logged in with blank spaces in values with {string} and {string}")
-	public void validate_error_msg_logged_blank_Spaces_values_displayed(String name,String pwd) {
+	public void validate_error_msg_logged_blank_Spaces_values_displayed(String name, String pwd) {
 		try {
 			if (osVersion.equalsIgnoreCase("iOS")) {
 
@@ -281,7 +220,7 @@ public class LoginLogoutStepDef extends AppSpecificMethods{
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Then("validate {string} is displayed in home screen")
 	public void validate_username_homescreen_displayed(String username) {
 		try {
@@ -294,7 +233,7 @@ public class LoginLogoutStepDef extends AppSpecificMethods{
 			e.printStackTrace();
 		}
 	}
-	
+
 	@When("Close the application alone")
 	public void close_the_application_alone_in_os() {
 		try {
@@ -309,7 +248,7 @@ public class LoginLogoutStepDef extends AppSpecificMethods{
 			e.printStackTrace();
 		}
 	}
-	
+
 	@When("I reopen the application in {string} for {string}")
 	public void reopen_the_application_in_os(String OSVersion, String functionality) {
 		osVersion = OSVersion;
@@ -331,7 +270,7 @@ public class LoginLogoutStepDef extends AppSpecificMethods{
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Then("validate if username {string} is saved and pwd is empty")
 	public void validate_username_saved_pwd_empty(String username) {
 		try {
@@ -344,10 +283,10 @@ public class LoginLogoutStepDef extends AppSpecificMethods{
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Then("I enter password {string} alone for auto filled in username")
 	public void i_enter_pwd_alone_auto_filled_username(String password) {
-		
+
 		try {
 			if (osVersion.equalsIgnoreCase("iOS")) {
 
@@ -358,22 +297,22 @@ public class LoginLogoutStepDef extends AppSpecificMethods{
 			e.printStackTrace();
 		}
 	}
-	
+
 	@When("I do swipe down to {string} element")
 	public void i_do_scroll_down_to_element(String element) {
-		
+
 		try {
 			if (osVersion.equalsIgnoreCase("iOS")) {
 
 			} else if (osVersion.equalsIgnoreCase("android")) {
-				new LoginLogoutPageAndroid().swipeToElement(element);;
+				new LoginLogoutPageAndroid().swipeToElement(element);
+				;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
-	
+
 	@Then("I click logout alone")
 	public void i_click_logout_alone() {
 		try {
@@ -386,7 +325,7 @@ public class LoginLogoutStepDef extends AppSpecificMethods{
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Then("validate logout yes or no is displayed")
 	public void validate_logout_yes_no_displayed() {
 		try {
@@ -399,7 +338,7 @@ public class LoginLogoutStepDef extends AppSpecificMethods{
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Then("validate if user not logged out when clicked outside pop up")
 	public void validate_user_not_logged_out_clicked_outside_pop_up() {
 		try {
@@ -412,7 +351,7 @@ public class LoginLogoutStepDef extends AppSpecificMethods{
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Then("validate logout popup {string} functionality")
 	public void validate_logout_pop_functionality(String yesNo) {
 		try {
@@ -452,7 +391,7 @@ public class LoginLogoutStepDef extends AppSpecificMethods{
 			}
 
 			break;
-			
+
 		case "EndtoEndLoginLogoutFunctionality":
 
 			if (osVersion.equalsIgnoreCase("iOS")) {
@@ -538,7 +477,7 @@ public class LoginLogoutStepDef extends AppSpecificMethods{
 	public void close_the_application() {
 		closeApp(osVersion);
 	}
-	
+
 	public void closeApp(String OSVersion) {
 		if (OSVersion.equalsIgnoreCase("iOS")) {
 			if (iOSdriver != null) {
@@ -561,11 +500,10 @@ public class LoginLogoutStepDef extends AppSpecificMethods{
 		}
 
 	}
-	
+
 	@Then("I email the report")
-	public void i_email_the_report() throws UnsupportedEncodingException, InterruptedException  {
+	public void i_email_the_report() throws UnsupportedEncodingException, InterruptedException {
 		EmailSend.emailSend();
 	}
 
-	 
 }

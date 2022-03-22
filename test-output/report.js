@@ -1,11 +1,11 @@
 $(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/java/Features/LoginLogout.feature");
 formatter.feature({
-  "name": "Login Logout functionality",
+  "name": "Login Logout functionality of DriverApp",
   "description": "",
   "keyword": "Feature",
   "tags": [
     {
-      "name": "@seed"
+      "name": "@driverAppLoginLogout"
     }
   ]
 });
@@ -132,7 +132,7 @@ formatter.scenario({
   "keyword": "Scenario Outline",
   "tags": [
     {
-      "name": "@seed"
+      "name": "@driverAppLoginLogout"
     },
     {
       "name": "@endToEndloginLogoutFunctionality"
@@ -397,9 +397,6 @@ formatter.result({
   "status": "passed"
 });
 formatter.afterstep({
-  "status": "passed"
-});
-formatter.after({
   "status": "passed"
 });
 formatter.after({

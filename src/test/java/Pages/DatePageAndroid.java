@@ -1,8 +1,8 @@
 package Pages;
 
-import mobileWrap.AppSpecificMethods;
+import mobileWrap.MobileWrapper;
 
-public class DatePageAndroid extends AppSpecificMethods {
+public class DatePageAndroid extends MobileWrapper {
 
 	String date = "(//android.widget.TextView[@content-desc=\"Text\"])[2]";
 	String route="(//android.widget.TextView[@content-desc=\"Text\"])[6]";

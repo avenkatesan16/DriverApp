@@ -52,36 +52,28 @@ import utils.Reporter;
 
 public class MobileWrapper extends Reporter {
 
-	// public static AppiumDriver<WebElement> driver;
 	public static IOSDriver<WebElement> iOSdriver;
 	public static AndroidDriver<WebElement> Androiddriver;
 	public static String platform;
 	Assertion assertion = new Assertion();
-	ConfigFileReader propertyFile=new ConfigFileReader();
-	
+	ConfigFileReader propertyFile = new ConfigFileReader();
 
 	public void initiateDriver(String OSVersion) {
 		if (OSVersion.equalsIgnoreCase("iOS")) {
 			platform = OSVersion;
 			try {
 				DesiredCapabilities caps = new DesiredCapabilities();
-				// Set your access credentials
 				caps.setCapability("browserstack.user", propertyFile.getBrowserstackUser());
 				caps.setCapability("browserstack.key", propertyFile.getBrowserstackKey());
 
-				// Set URL of the application under test
 				caps.setCapability("app", propertyFile.getIOSAppURL());
 
-				// Specify device and os_version for testing
 				caps.setCapability("device", propertyFile.getIOSDeviceName());
 				caps.setCapability("os_version", propertyFile.getIOSVersion());
 
-				// Set other BrowserStack capabilities
-				caps.setCapability("project",propertyFile.getProjectName());
-				caps.setCapability("build", propertyFile.getIOSBuild());
-				
-				// Initialise the remote Webdriver using BrowserStack remote URL
-				// and desired capabilities defined above
+				caps.setCapability("project", propertyFile.getProjectName());
+				caps.setCapability("build", "IOS Execution App Version " + propertyFile.getIOSAppBuild());
+
 				iOSdriver = new IOSDriver<WebElement>(new URL(propertyFile.getBrowserstackURL()), caps);
 
 				iOSdriver.manage().timeouts().implicitlyWait(propertyFile.getImplicitWait(), TimeUnit.SECONDS);
@@ -92,27 +84,20 @@ public class MobileWrapper extends Reporter {
 			platform = OSVersion;
 			try {
 				DesiredCapabilities caps = new DesiredCapabilities();
-				// Set your access credentials
 				caps.setCapability("browserstack.user", propertyFile.getBrowserstackUser());
 				caps.setCapability("browserstack.key", propertyFile.getBrowserstackKey());
 
-				// Set URL of the application under test
 				caps.setCapability("app", propertyFile.getAndroidAppURL());
 
-				// Specify device and os_version for testing
 				caps.setCapability("device", propertyFile.getAndroidDeviceName());
 				caps.setCapability("os_version", propertyFile.getAndroidVersion());
 
-				// Set other BrowserStack capabilities
-				caps.setCapability("project",propertyFile.getProjectName());
-				caps.setCapability("build", "Android Execution "+propertyFile.getAndroidBuildVersion());
+				caps.setCapability("project", propertyFile.getProjectName());
+				caps.setCapability("build", "Android Execution App Version " + propertyFile.getAndroidAppBuild());
 
-				// Initialise the remote Webdriver using BrowserStack remote URL
-				// and desired capabilities defined above
 				Androiddriver = new AndroidDriver<WebElement>(new URL(propertyFile.getBrowserstackURL()), caps);
 
 				Androiddriver.manage().timeouts().implicitlyWait(propertyFile.getImplicitWait(), TimeUnit.SECONDS);
-//				logger=report.createTest("Logged into the Driver app");
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -124,24 +109,16 @@ public class MobileWrapper extends Reporter {
 			platform = OSVersion;
 			try {
 				DesiredCapabilities caps = new DesiredCapabilities();
-				// Set your access credentials
 				caps.setCapability("browserstack.user", propertyFile.getBrowserstackUser());
 				caps.setCapability("browserstack.key", propertyFile.getBrowserstackKey());
 
-				// Set URL of the application under test
 				caps.setCapability("app", propertyFile.getIOSAppURL());
 
-				// Specify device and os_version for testing
 				caps.setCapability("device", propertyFile.getIOSDeviceName());
 				caps.setCapability("os_version", propertyFile.getIOSVersion());
 
-				// Set other BrowserStack capabilities
-				caps.setCapability("project",propertyFile.getProjectName());
+				caps.setCapability("project", propertyFile.getProjectName());
 				caps.setCapability("build", propertyFile.getIOSBuild());
-
-				// Initialise the remote Webdriver using BrowserStack remote URL
-				// and desired capabilities defined above
-//				iOSdriver = new IOSDriver<WebElement>(new URL("http://hub.browserstack.com/wd/hub"), caps);
 
 //				String packageName = ((IOSDriver) iOSdriver).getCurrentPackage();
 //				iOSdriver.terminateApp(packageName);
@@ -156,28 +133,20 @@ public class MobileWrapper extends Reporter {
 			platform = OSVersion;
 			try {
 				DesiredCapabilities caps = new DesiredCapabilities();
-				// Set your access credentials
 				caps.setCapability("browserstack.user", propertyFile.getBrowserstackUser());
 				caps.setCapability("browserstack.key", propertyFile.getBrowserstackKey());
 
-				// Set URL of the application under test
 				caps.setCapability("app", propertyFile.getAndroidAppURL());
 
-				// Specify device and os_version for testing
 				caps.setCapability("device", propertyFile.getAndroidDeviceName());
 				caps.setCapability("os_version", propertyFile.getAndroidVersion());
 
-				// Set other BrowserStack capabilities
-				caps.setCapability("project",propertyFile.getProjectName());
+				caps.setCapability("project", propertyFile.getProjectName());
 				caps.setCapability("build", propertyFile.getAndroidBuild());
 
 				String packageName = ((AndroidDriver) Androiddriver).getCurrentPackage();
 				Androiddriver.terminateApp(packageName);
 				Androiddriver.activateApp(packageName);
-
-//				// Initialise the remote Webdriver using BrowserStack remote URL
-//				// and desired capabilities defined above
-//				Androiddriver = new AndroidDriver<WebElement>(new URL("http://hub.browserstack.com/wd/hub"), caps);
 
 				Androiddriver.manage().timeouts().implicitlyWait(propertyFile.getImplicitWait(), TimeUnit.SECONDS);
 			} catch (Exception e) {
@@ -226,61 +195,6 @@ public class MobileWrapper extends Reporter {
 			}
 		}
 	}
-
-	/*
-	 * public boolean launchAppBrowserStack(String deviceName) { try {
-	 * DesiredCapabilities caps = new DesiredCapabilities(); // Set your access
-	 * credentials caps.setCapability("browserstack.user", "cgurusamy_yEfsYh");
-	 * caps.setCapability("browserstack.key", "ksqvd8D79PaqQrxpXasL");
-	 * 
-	 * // Set URL of the application under test caps.setCapability("app",
-	 * "bs://9529025c6cd4d0af53668452ab2736138973bc9b");
-	 * 
-	 * // Specify device and os_version for testing caps.setCapability("device",
-	 * deviceName); // caps.setCapability("os", "ios");
-	 * caps.setCapability("os_version", "11");
-	 * 
-	 * // Set other BrowserStack capabilities caps.setCapability("project",
-	 * "Cantaloupe"); caps.setCapability("build", "SeedWarehouseOneplus");
-	 * 
-	 * // Initialise the remote Webdriver using BrowserStack remote URL // and
-	 * desired capabilities defined above driver = new AndroidDriver<WebElement>(new
-	 * URL("http://hub.browserstack.com/wd/hub"), caps);
-	 * 
-	 * driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); } catch
-	 * (Exception e) {
-	 * 
-	 * } return true; }
-	 */
-
-	/*
-	 * public boolean launchApp(String appPackage, String appActivity, String
-	 * deviceName,String udid) { try { DesiredCapabilities dc = new
-	 * DesiredCapabilities(); dc.setCapability("appPackage", appPackage);
-	 * dc.setCapability("appActivity", appActivity); dc.setCapability("deviceName",
-	 * deviceName); dc.setCapability("automationName", "UiAutomator2");
-	 * dc.setCapability("noReset", true); dc.setCapability("udid", udid);
-	 * dc.setCapability("autoGrantPermissions",true);
-	 * //dc.setCapability("unicodeKeyboard", "true");
-	 * //dc.setCapability("resetKeyboard", "true");
-	 * 
-	 * 
-	 * driver = new AndroidDriver<WebElement>(new URL("http://0.0.0.0:4723/wd/hub"),
-	 * dc); driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); } catch
-	 * (Exception e) {
-	 * 
-	 * } return true; }
-	 */
-
-	/*
-	 * public boolean launchBrowser(String browserName, String deviceName, String
-	 * URL) { try { DesiredCapabilities dc = new DesiredCapabilities();
-	 * dc.setCapability("browserName", browserName); dc.setCapability("deviceName",
-	 * deviceName); driver = new AndroidDriver<WebElement>(new
-	 * URL("http://0.0.0.0:4723/wd/hub"), dc); driver.get(URL);
-	 * driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); } catch
-	 * (MalformedURLException e) { e.printStackTrace(); } return true; }
-	 */
 
 	public boolean loadURL(String URL) {
 		if (platform.equalsIgnoreCase("iOS")) {
@@ -499,10 +413,9 @@ public class MobileWrapper extends Reporter {
 		}
 	}
 
-	/*
-	 * public void showNotificationMenu() { ((AndroidDriver<WebElement>)
-	 * driver).openNotifications(); }
-	 */
+	public void showNotificationMenu() {
+		((AndroidDriver<WebElement>) Androiddriver).openNotifications();
+	}
 
 	public void getBatteryInfoInAndroid() {
 		if (platform.equalsIgnoreCase("iOS")) {
@@ -1448,17 +1361,19 @@ public class MobileWrapper extends Reporter {
 		return true;
 	}
 
-	/*
-	 * public boolean
-	 * scrollFromDownToUpinAppUsingPointerInputUntilElementIsVisible(String locator,
-	 * String locValue) { while (!eleIsDisplayed(getWebElement(locator, locValue)))
-	 * { scrollFromDownToUpinAppUsingPointerInput(); } return true; }
-	 * 
-	 * public boolean
-	 * scrollFromUpToDowninAppUsingPointerInputUntilElementIsVisible(String locator,
-	 * String locValue) { while (!eleIsDisplayed(getWebElement(locator, locValue)))
-	 * { scrollFromUpToDowninAppUsingPointerInput(); } return true; }
-	 */
+//	public boolean scrollFromDownToUpinAppUsingPointerInputUntilElementIsVisible(String locator, String locValue) {
+//		while (!eleIsDisplayed(getWebElement(locator, locValue))) {
+//			scrollFromDownToUpinAppUsingPointerInput();
+//		}
+//		return true;
+//	}
+//
+//	public boolean scrollFromUpToDowninAppUsingPointerInputUntilElementIsVisible(String locator, String locValue) {
+//		while (!eleIsDisplayed(getWebElement(locator, locValue))) {
+//			scrollFromUpToDowninAppUsingPointerInput();
+//		}
+//		return true;
+//	}
 
 	public boolean clickInCoOrdinatesOfApp(int x0, int y0) {
 		if (platform.equalsIgnoreCase("iOS")) {
@@ -1595,14 +1510,15 @@ public class MobileWrapper extends Reporter {
 		}
 	}
 
-//	private String getOrientation() {
-//		if(platform.equalsIgnoreCase("iOS")) {
-//		return iOSdriver.getOrientation().toString();
-//		}
-//		else if(platform.equalsIgnoreCase("android")) {
-//			return Androiddriver.getOrientation().toString();
-//		}
-//	}
+	private String getOrientation() {
+		String orientation = "";
+		if (platform.equalsIgnoreCase("iOS")) {
+			orientation = iOSdriver.getOrientation().toString();
+		} else if (platform.equalsIgnoreCase("android")) {
+			orientation = Androiddriver.getOrientation().toString();
+		}
+		return orientation;
+	}
 
 	public void enterValue(String data, String locator, String locValue) {
 		if (platform.equalsIgnoreCase("iOS")) {
@@ -1615,7 +1531,6 @@ public class MobileWrapper extends Reporter {
 					reportStep("Element is displayed successfully", "PASS");
 				}
 
-//			assertion.assertEquals(iOSdriver.findElement(By.xpath(locValue)).isDisplayed(),"true");
 				ele.sendKeys(data);
 
 			} catch (Exception e) {
@@ -1624,7 +1539,6 @@ public class MobileWrapper extends Reporter {
 				iOSdriver.quit();
 				assertion.fail("Element is not displayed");
 
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 
 			}
@@ -1637,7 +1551,6 @@ public class MobileWrapper extends Reporter {
 				if (ele.isDisplayed()) {
 					reportStep("Element is displayed successfully", "PASS");
 				}
-//				assertion.assertEquals(Androiddriver.findElement(By.xpath(locValue)).isDisplayed(),"true");
 				ele.sendKeys(data);
 
 			} catch (Exception e) {
@@ -1646,7 +1559,6 @@ public class MobileWrapper extends Reporter {
 				Androiddriver.quit();
 				assertion.fail("Element is not displayed");
 
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -1670,7 +1582,6 @@ public class MobileWrapper extends Reporter {
 				iOSdriver.quit();
 				assertion.fail("Element is not displayed");
 
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		} else if (platform.equalsIgnoreCase("android")) {
@@ -1689,7 +1600,6 @@ public class MobileWrapper extends Reporter {
 				Androiddriver.quit();
 				assertion.fail("Element is not displayed");
 
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -1847,16 +1757,12 @@ public class MobileWrapper extends Reporter {
 		if (platform.equalsIgnoreCase("iOS")) {
 			TouchAction action = new TouchAction(iOSdriver);
 			action.press(PointOption.point(fromX, fromY))
-					.waitAction(new WaitOptions().withDuration(Duration.ofMillis(3000))) // you can change wait
-																							// durations as per your
-																							// requirement
+					.waitAction(new WaitOptions().withDuration(Duration.ofMillis(3000)))
 					.moveTo(PointOption.point(toX, toY)).release().perform();
 		} else if (platform.equalsIgnoreCase("android")) {
 			TouchAction action = new TouchAction(Androiddriver);
 			action.press(PointOption.point(fromX, fromY))
-					.waitAction(new WaitOptions().withDuration(Duration.ofMillis(3000))) // you can change wait
-																							// durations as per your
-																							// requirement
+					.waitAction(new WaitOptions().withDuration(Duration.ofMillis(3000)))
 					.moveTo(PointOption.point(toX, toY)).release().perform();
 		}
 	}
@@ -1895,23 +1801,53 @@ public class MobileWrapper extends Reporter {
 			}
 		}
 	}
-	
+
 	public static byte[] getByteScreenshot(String osVersion) throws IOException {
 		byte[] FileContent = null;
 		if (platform.equalsIgnoreCase("iOS")) {
-		File src=((TakesScreenshot) iOSdriver).getScreenshotAs(OutputType.FILE);
-		 FileContent=FileUtils.readFileToByteArray(src);
-		
-		}else if (platform.equalsIgnoreCase("android")) {
-			File src=((TakesScreenshot) Androiddriver).getScreenshotAs(OutputType.FILE);
-		 FileContent=FileUtils.readFileToByteArray(src);
+			File src = ((TakesScreenshot) iOSdriver).getScreenshotAs(OutputType.FILE);
+			FileContent = FileUtils.readFileToByteArray(src);
+
+		} else if (platform.equalsIgnoreCase("android")) {
+			File src = ((TakesScreenshot) Androiddriver).getScreenshotAs(OutputType.FILE);
+			FileContent = FileUtils.readFileToByteArray(src);
 		}
-		
+
 		return FileContent;
 	}
-	
-	public void attachScreenshot(Scenario scenario,String osVersion) throws IOException {
-	scenario.attach(getByteScreenshot(osVersion), "img/png", "test execution");
+
+	public void attachScreenshot(Scenario scenario, String osVersion) throws IOException {
+		scenario.attach(getByteScreenshot(osVersion), "img/png", "test execution");
 	}
+	
+	public void closeDriver(String OSVersion) {
+		closeApp(OSVersion);
+	}
+
+	public void launchDriver(String OSVersion) {
+		initiateDriver(OSVersion);
+		switchNativeview();
+
+	}
+
+	public void reLaunchDriver(String OSVersion) {
+		reinitiateDriver(OSVersion);
+		switchNativeview();
+
+	}
+
+	public void launchDriverRealDevice(String OSVersion) {
+		if (OSVersion.equalsIgnoreCase("iOS")) {
+			launchAppInRealDevice("com.driver_app", "com.driver_app_MaiActivity", "Aishwarya",
+					"D:\\Downloads\\driver_app.ipa", OSVersion);
+			switchNativeview();
+		} else if (OSVersion.equalsIgnoreCase("android")) {
+			launchAppInRealDevice("com.driver_app", "com.driver_app_MaiActivity", "Aishwarya",
+					"D:\\Downloads\\app-armeabi-v7a-release.apk", OSVersion);
+			switchNativeview();
+		}
+
+	}
+
 
 }
