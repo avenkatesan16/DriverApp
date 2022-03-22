@@ -10,49 +10,21 @@ formatter.feature({
   ]
 });
 formatter.scenarioOutline({
-  "name": "Validate End to End login and logout functionality",
+  "name": "Validate login and logout functionality",
   "description": "",
   "keyword": "Scenario Outline",
   "tags": [
     {
-      "name": "@endToEndloginLogoutFunctionality"
+      "name": "@loginLogoutFunctionality"
     }
   ]
 });
 formatter.step({
   "name": "I log into the application in \"\u003cOSVersion\u003e\" for \"\u003cFunctionality\u003e\"",
-  "keyword": "Given "
-});
-formatter.step({
-  "name": "validate if splash screen is displayed",
-  "keyword": "And "
-});
-formatter.step({
-  "name": "I click login button",
   "keyword": "When "
 });
 formatter.step({
-  "name": "validate if hide or show is displayed",
-  "keyword": "And "
-});
-formatter.step({
-  "name": "validate if skip username or password error msg is displayed",
-  "keyword": "And "
-});
-formatter.step({
-  "name": "validate if blank username and valid pwd \"\u003cpassword\u003e\" error msg is dispalyed",
-  "keyword": "And "
-});
-formatter.step({
-  "name": "validate if valid username \"\u003cusername\u003e\" and blank pwd error msg is dispalyed",
-  "keyword": "And "
-});
-formatter.step({
-  "name": "validate if copyright text and version is displayed",
-  "keyword": "And "
-});
-formatter.step({
-  "name": "validate if user gets error msg when logged in with blank spaces in values with \"\u003cBlankspacesUsername\u003e\" and \"\u003cBlankspacesPassword\u003e\"",
+  "name": "I validate login page objects",
   "keyword": "And "
 });
 formatter.step({
@@ -68,24 +40,8 @@ formatter.step({
   "keyword": "And "
 });
 formatter.step({
-  "name": "I click logout alone",
+  "name": "I click logout",
   "keyword": "Then "
-});
-formatter.step({
-  "name": "validate logout yes or no is displayed",
-  "keyword": "And "
-});
-formatter.step({
-  "name": "validate logout popup \"No\" functionality",
-  "keyword": "And "
-});
-formatter.step({
-  "name": "I click logout alone",
-  "keyword": "Then "
-});
-formatter.step({
-  "name": "validate logout popup \"Yes\" functionality",
-  "keyword": "And "
 });
 formatter.step({
   "name": "validate if logout is done successfully",
@@ -94,10 +50,6 @@ formatter.step({
 formatter.step({
   "name": "Update execution status for \"\u003cFunctionality\u003e\" functionality",
   "keyword": "And "
-});
-formatter.step({
-  "name": "I email the report",
-  "keyword": "Then "
 });
 formatter.examples({
   "name": "",
@@ -109,25 +61,21 @@ formatter.examples({
         "OSVersion",
         "username",
         "password",
-        "BlankspacesUsername",
-        "BlankspacesPassword",
         "Functionality"
       ]
     },
     {
       "cells": [
         "android",
-        "avenkatesan@cantaloupe.com",
-        "abc",
-        "a venkatesan@cantaloupe.com",
-        "ab cde",
-        "EndtoEndLoginLogoutFunctionality"
+        "skaushik@cantaloupe.com",
+        "Saurabh@123",
+        "LoginLogoutFunctionality"
       ]
     }
   ]
 });
 formatter.scenario({
-  "name": "Validate End to End login and logout functionality",
+  "name": "Validate login and logout functionality",
   "description": "",
   "keyword": "Scenario Outline",
   "tags": [
@@ -135,13 +83,13 @@ formatter.scenario({
       "name": "@driverAppLoginLogout"
     },
     {
-      "name": "@endToEndloginLogoutFunctionality"
+      "name": "@loginLogoutFunctionality"
     }
   ]
 });
 formatter.step({
-  "name": "I log into the application in \"android\" for \"EndtoEndLoginLogoutFunctionality\"",
-  "keyword": "Given "
+  "name": "I log into the application in \"android\" for \"LoginLogoutFunctionality\"",
+  "keyword": "When "
 });
 formatter.match({
   "location": "Steps.LoginLogoutStepDef.i_log_into_the_application_in_for(java.lang.String,java.lang.String)"
@@ -153,11 +101,11 @@ formatter.afterstep({
   "status": "passed"
 });
 formatter.step({
-  "name": "validate if splash screen is displayed",
+  "name": "I validate login page objects",
   "keyword": "And "
 });
 formatter.match({
-  "location": "Steps.LoginLogoutStepDef.validate_splash_screen_displayed()"
+  "location": "Steps.LoginLogoutStepDef.i_validate_login_page_objects()"
 });
 formatter.result({
   "status": "passed"
@@ -166,98 +114,7 @@ formatter.afterstep({
   "status": "passed"
 });
 formatter.step({
-  "name": "I click login button",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "Steps.LoginLogoutStepDef.i_click_login_button()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.afterstep({
-  "status": "passed"
-});
-formatter.step({
-  "name": "validate if hide or show is displayed",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "Steps.LoginLogoutStepDef.validate_hide_show_displayed()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.afterstep({
-  "status": "passed"
-});
-formatter.step({
-  "name": "validate if skip username or password error msg is displayed",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "Steps.LoginLogoutStepDef.validate_skip_username_pwd_error_msg_displayed()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.afterstep({
-  "status": "passed"
-});
-formatter.step({
-  "name": "validate if blank username and valid pwd \"abc\" error msg is dispalyed",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "Steps.LoginLogoutStepDef.validate_blank_username_valid_pwd_error_msg_displayed(java.lang.String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.afterstep({
-  "status": "passed"
-});
-formatter.step({
-  "name": "validate if valid username \"avenkatesan@cantaloupe.com\" and blank pwd error msg is dispalyed",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "Steps.LoginLogoutStepDef.validate_valid_username_blank_pwd_error_msg_displayed(java.lang.String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.afterstep({
-  "status": "passed"
-});
-formatter.step({
-  "name": "validate if copyright text and version is displayed",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "Steps.LoginLogoutStepDef.validate_copyright_text_displayed()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.afterstep({
-  "status": "passed"
-});
-formatter.step({
-  "name": "validate if user gets error msg when logged in with blank spaces in values with \"a venkatesan@cantaloupe.com\" and \"ab cde\"",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "Steps.LoginLogoutStepDef.validate_error_msg_logged_blank_Spaces_values_displayed(java.lang.String,java.lang.String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.afterstep({
-  "status": "passed"
-});
-formatter.step({
-  "name": "I enter \"avenkatesan@cantaloupe.com\" and \"abc\"",
+  "name": "I enter \"skaushik@cantaloupe.com\" and \"Saurabh@123\"",
   "keyword": "Then "
 });
 formatter.match({
@@ -296,63 +153,11 @@ formatter.afterstep({
   "status": "passed"
 });
 formatter.step({
-  "name": "I click logout alone",
+  "name": "I click logout",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "Steps.LoginLogoutStepDef.i_click_logout_alone()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.afterstep({
-  "status": "passed"
-});
-formatter.step({
-  "name": "validate logout yes or no is displayed",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "Steps.LoginLogoutStepDef.validate_logout_yes_no_displayed()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.afterstep({
-  "status": "passed"
-});
-formatter.step({
-  "name": "validate logout popup \"No\" functionality",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "Steps.LoginLogoutStepDef.validate_logout_pop_functionality(java.lang.String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.afterstep({
-  "status": "passed"
-});
-formatter.step({
-  "name": "I click logout alone",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "Steps.LoginLogoutStepDef.i_click_logout_alone()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.afterstep({
-  "status": "passed"
-});
-formatter.step({
-  "name": "validate logout popup \"Yes\" functionality",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "Steps.LoginLogoutStepDef.validate_logout_pop_functionality(java.lang.String)"
+  "location": "Steps.LoginLogoutStepDef.i_click_logout()"
 });
 formatter.result({
   "status": "passed"
@@ -374,24 +179,11 @@ formatter.afterstep({
   "status": "passed"
 });
 formatter.step({
-  "name": "Update execution status for \"EndtoEndLoginLogoutFunctionality\" functionality",
+  "name": "Update execution status for \"LoginLogoutFunctionality\" functionality",
   "keyword": "And "
 });
 formatter.match({
   "location": "Steps.LoginLogoutStepDef.update_execution_status_for_functionality(java.lang.String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.afterstep({
-  "status": "passed"
-});
-formatter.step({
-  "name": "I email the report",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "Steps.LoginLogoutStepDef.i_email_the_report()"
 });
 formatter.result({
   "status": "passed"

@@ -14,9 +14,9 @@ import io.cucumber.testng.CucumberOptions;
 
 public class TestNGRunner extends AbstractTestNGCucumberTests {
 
-	@After
-	public void sendEmail() throws UnsupportedEncodingException, InterruptedException {
-		EmailSend.emailSend();
-	}
+//	@After
+//	public void sendEmail() throws UnsupportedEncodingException, InterruptedException {
+//		EmailSend.emailSend();
+//	}
 
 }
