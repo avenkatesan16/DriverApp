@@ -20,55 +20,9 @@ public abstract class Reporter{
 	public static ExtentTest test, suiteTest;
 	public String testCaseName, testNodes, testDescription, category, authors;
 	public static String folderName = "";
-//	public ExtentReports report;
-//	public ExtentTest logger;
-	// File Level - Before Suite
-	
-	public void startResult() throws IOException {
-		
-		try {
-			File file = new File("./reports/result.html");
-			file.delete();
-			folderName = "reports/images";
-
-			File folder = new File("./" + folderName);
-			if (folder.exists()) {
-				folder.delete();
-			}
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-//		html = new ExtentHtmlReporter("./reports/result.html");
-//		html.config().setResourceCDN(ResourceCDN.EXTENTREPORTS);
-//		html.config().setChartVisibilityOnOpen(false);
-//		html.config().setDocumentTitle("MobileFramework");
-//		html.setAppendExisting(true);		
-//		extent = new ExtentReports();	
-//		extent.attachReporter(html);	
-	}
-	
-	
-
-	// testCase level - Before class
-//	@BeforeClass
-//	public void startTestModule(String testCaseName, String testDescription) {
-//		suiteTest = extent.createTest(testCaseName, testDescription);
-//
-//	}
-
-//	@Test
-//	public ExtentTest startTestCase(String testNodes) {
-//		test = 	suiteTest.createNode(testNodes);
-//		test.assignAuthor(authors);
-//		test.assignCategory(category);
-//		return test;
-//	}
 
 	public abstract long takeScreenShot();
 
-	// step level
 	public void reportStep(String desc, String status, boolean bSnap)  {
 
 		MediaEntityModelProvider img = null;
@@ -100,12 +54,5 @@ public abstract class Reporter{
 		reportStep(desc, status, true);
 	}
 
-
-
-	// execute code - After suite
-//	public void endResult() {
-//		extent.flush();
-//		
-//	}	
 
 }

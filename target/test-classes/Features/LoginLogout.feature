@@ -3,7 +3,7 @@ Feature: Login Logout functionality of DriverApp
       
   @loginLogoutFunctionality
   Scenario Outline: Validate login and logout functionality
-    When I log into the application in "<OSVersion>" for "<Functionality>"
+    Given I log into the application in "<OSVersion>" for "<Functionality>"
     And I validate login page objects
     Then I enter "<username>" and "<password>"
     And I click login button
@@ -38,7 +38,6 @@ Feature: Login Logout functionality of DriverApp
     And validate logout popup "Yes" functionality
     And validate if logout is done successfully
     And Update execution status for "<Functionality>" functionality
-    Then I email the report
 
     Examples: 
       | OSVersion | username | password | BlankspacesUsername | BlankspacesPassword | Functionality |

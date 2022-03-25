@@ -50,7 +50,7 @@ import io.appium.java_client.touch.offset.PointOption;
 import io.cucumber.java.Scenario;
 import utils.Reporter;
 
-public class MobileWrapper extends Reporter {
+public class MobileWrapper {
 
 	public static IOSDriver<WebElement> iOSdriver;
 	public static AndroidDriver<WebElement> Androiddriver;
@@ -338,15 +338,15 @@ public class MobileWrapper extends Reporter {
 				WebElement ele = getWebElement(locator, locValue);
 				wait.until(ExpectedConditions.visibilityOf(ele));
 				if (ele.isDisplayed()) {
-					reportStep("Element is displayed successfully", "PASS");
+					System.out.println(Expected+" element is displayed successfully");
 				}
 
 				name = ele.getText();
 			} catch (Exception e) {
-				reportStep("Element is not displayed", "FAIL");
+				System.out.println(Expected+" element is not displayed");
 				iOSdriver.closeApp();
 				iOSdriver.quit();
-				Assert.fail("Element is not displayed");
+				Assert.fail(Expected+" Element is not displayed");
 
 				e.printStackTrace();
 			}
@@ -357,14 +357,14 @@ public class MobileWrapper extends Reporter {
 				WebElement ele = getWebElement(locator, locValue);
 				wait.until(ExpectedConditions.visibilityOf(ele));
 				if (ele.isDisplayed()) {
-					reportStep("Element is displayed successfully", "PASS");
+					System.out.println(Expected+" element is displayed successfully");
 				}
 				name = ele.getText();
 			} catch (Exception e) {
-				reportStep("Element is not displayed", "FAIL");
+				System.out.println(Expected+" element is not displayed");
 				Androiddriver.closeApp();
 				Androiddriver.quit();
-				Assert.fail("Element is not displayed");
+				Assert.fail(Expected+" element is not displayed");
 
 				e.printStackTrace();
 			}
@@ -380,15 +380,15 @@ public class MobileWrapper extends Reporter {
 				WebElement ele = getWebElement(locator, locValue);
 				wait.until(ExpectedConditions.visibilityOf(ele));
 				if (!ele.isDisplayed()) {
-					reportStep("Element is not displayed as expected", "PASS");
+					System.out.println(Expected+" element is not displayed as expected");
 				}
 
 				name = ele.getText();
 			} catch (Exception e) {
-				reportStep("Element is displayed", "FAIL");
+				System.out.println(Expected+" element is displayed");
 				iOSdriver.closeApp();
 				iOSdriver.quit();
-				Assert.fail("Element is displayed");
+				Assert.fail(Expected+" element is displayed");
 
 				e.printStackTrace();
 			}
@@ -399,14 +399,14 @@ public class MobileWrapper extends Reporter {
 				WebElement ele = getWebElement(locator, locValue);
 				wait.until(ExpectedConditions.visibilityOf(ele));
 				if (!ele.isDisplayed()) {
-					reportStep("Element is not displayed as expected", "PASS");
+					System.out.println(Expected+" element is not displayed as expected");
 				}
 				name = ele.getText();
 			} catch (Exception e) {
-				reportStep("Element is displayed", "FAIL");
+				System.out.println(Expected+" element is displayed");
 				Androiddriver.closeApp();
 				Androiddriver.quit();
-				Assert.fail("Element is displayed");
+				Assert.fail(Expected+" element is displayed");
 
 				e.printStackTrace();
 			}
@@ -550,7 +550,7 @@ public class MobileWrapper extends Reporter {
 				WebDriverWait wait = new WebDriverWait(iOSdriver, 30);
 				wait.until(ExpectedConditions.visibilityOf(getWebElement(locator, locValue)));
 				if (getWebElement(locator, locValue).isDisplayed()) {
-					reportStep("Element is displayed successfully", "PASS");
+					System.out.println(Expected+" element is displayed as expected");
 				}
 
 				name = getWebElement(locator, locValue).getText();
@@ -559,10 +559,10 @@ public class MobileWrapper extends Reporter {
 				} else
 					val = false;
 			} catch (Exception e) {
-				reportStep("Element is not displayed", "FAIL");
+				System.out.println(Expected+" element is not displayed");
 				iOSdriver.closeApp();
 				iOSdriver.quit();
-				assertion.fail("Element is not displayed");
+				assertion.fail(Expected+" element is not displayed");
 
 				e.printStackTrace();
 			}
@@ -571,7 +571,7 @@ public class MobileWrapper extends Reporter {
 				WebDriverWait wait = new WebDriverWait(Androiddriver, 30);
 				wait.until(ExpectedConditions.visibilityOf(getWebElement(locator, locValue)));
 				if (getWebElement(locator, locValue).isDisplayed()) {
-					reportStep("Element is displayed successfully", "PASS");
+					System.out.println(Expected+" element is displayed as expected");
 				}
 				name = getWebElement(locator, locValue).getText();
 				if (name.contains(Expected)) {
@@ -579,10 +579,10 @@ public class MobileWrapper extends Reporter {
 				} else
 					val = false;
 			} catch (Exception e) {
-				reportStep("Element is not displayed", "FAIL");
+				System.out.println(Expected+" element is not displayed");
 				Androiddriver.closeApp();
 				Androiddriver.quit();
-				assertion.fail("Element is not displayed");
+				assertion.fail(Expected+" element is not displayed");
 
 				e.printStackTrace();
 			}
@@ -1087,10 +1087,10 @@ public class MobileWrapper extends Reporter {
 				WebElement ele = getWebElement(locator, locValue);
 				WebDriverWait wait = new WebDriverWait(iOSdriver, 30);
 				if (ele.isDisplayed()) {
-					reportStep("Element is displayed successfully", "PASS");
+					System.out.println("Element is displayed as expected");
 				}
 			} catch (Exception e) {
-				reportStep("Element is not displayed", "FAIL");
+				System.out.println("Element is not displayed");
 				iOSdriver.closeApp();
 				iOSdriver.quit();
 				assertion.fail("Element is not displayed");
@@ -1101,10 +1101,10 @@ public class MobileWrapper extends Reporter {
 				WebElement ele = getWebElement(locator, locValue);
 				WebDriverWait wait = new WebDriverWait(Androiddriver, 30);
 				if (ele.isDisplayed()) {
-					reportStep("Element is displayed successfully", "PASS");
+					System.out.println("Element is displayed as expected");
 				}
 			} catch (Exception e) {
-				reportStep("Element is not displayed", "FAIL");
+				System.out.println("Element is not displayed");
 				Androiddriver.closeApp();
 				Androiddriver.quit();
 				assertion.fail("Element is not displayed");
@@ -1528,13 +1528,13 @@ public class MobileWrapper extends Reporter {
 				wait.until(ExpectedConditions.elementToBeClickable(ele));
 				ele.clear();
 				if (ele.isDisplayed()) {
-					reportStep("Element is displayed successfully", "PASS");
+					System.out.println("Element is displayed as expected");
 				}
 
 				ele.sendKeys(data);
 
 			} catch (Exception e) {
-				reportStep("Element is not displayed", "FAIL");
+				System.out.println("Element is not displayed");
 				iOSdriver.closeApp();
 				iOSdriver.quit();
 				assertion.fail("Element is not displayed");
@@ -1549,12 +1549,12 @@ public class MobileWrapper extends Reporter {
 				wait.until(ExpectedConditions.elementToBeClickable(ele));
 				ele.clear();
 				if (ele.isDisplayed()) {
-					reportStep("Element is displayed successfully", "PASS");
+					System.out.println("Element is displayed as expected");
 				}
 				ele.sendKeys(data);
 
 			} catch (Exception e) {
-				reportStep("Element is not displayed", "FAIL");
+				System.out.println("Element is not displayed");
 				Androiddriver.closeApp();
 				Androiddriver.quit();
 				assertion.fail("Element is not displayed");
@@ -1571,13 +1571,13 @@ public class MobileWrapper extends Reporter {
 				WebDriverWait wait = new WebDriverWait(iOSdriver, 30);
 				wait.until(ExpectedConditions.elementToBeClickable(ele));
 				if (ele.isDisplayed()) {
-					reportStep("Element is displayed successfully", "PASS");
+					System.out.println("Element is displayed as expected");
 				}
 
 				ele.clear();
 
 			} catch (Exception e) {
-				reportStep("Element is not displayed", "FAIL");
+				System.out.println("Element is not displayed");
 				iOSdriver.closeApp();
 				iOSdriver.quit();
 				assertion.fail("Element is not displayed");
@@ -1590,12 +1590,12 @@ public class MobileWrapper extends Reporter {
 				WebDriverWait wait = new WebDriverWait(Androiddriver, 30);
 				wait.until(ExpectedConditions.elementToBeClickable(ele));
 				if (ele.isDisplayed()) {
-					reportStep("Element is displayed", "PASS");
+					System.out.println("Element is displayed as expected");
 				}
 				ele.clear();
 
 			} catch (Exception e) {
-				reportStep("Element is not displayed", "FAIL");
+				System.out.println("Element is not displayed");
 				Androiddriver.closeApp();
 				Androiddriver.quit();
 				assertion.fail("Element is not displayed");
@@ -1612,11 +1612,11 @@ public class MobileWrapper extends Reporter {
 				WebDriverWait wait = new WebDriverWait(iOSdriver, 30);
 				wait.until(ExpectedConditions.elementToBeClickable(ele));
 				if (ele.isDisplayed()) {
-					reportStep("Element is displayed successfully", "PASS");
+					System.out.println("Element is displayed as expected");
 				}
 				ele.click();
 			} catch (Exception e) {
-				reportStep("Element is not displayed", "FAIL");
+				System.out.println("Element is not displayed");
 				iOSdriver.closeApp();
 				iOSdriver.quit();
 				assertion.fail("Element is not displayed");
@@ -1628,11 +1628,11 @@ public class MobileWrapper extends Reporter {
 				WebDriverWait wait = new WebDriverWait(Androiddriver, 30);
 				wait.until(ExpectedConditions.elementToBeClickable(ele));
 				if (ele.isDisplayed()) {
-					reportStep("Element is displayed successfully", "PASS");
+					System.out.println("Element is displayed as expected");
 				}
 				ele.click();
 			} catch (Exception e) {
-				reportStep("Element is not displayed", "FAIL");
+				System.out.println("Element is not displayed");
 				Androiddriver.closeApp();
 				Androiddriver.quit();
 				assertion.fail("Element is not displayed");
@@ -1649,11 +1649,11 @@ public class MobileWrapper extends Reporter {
 				WebDriverWait wait = new WebDriverWait(iOSdriver, 30);
 				wait.until(ExpectedConditions.elementToBeClickable(ele));
 				if (ele.isDisplayed()) {
-					reportStep("Element is displayed successfully", "PASS");
+					System.out.println("Element is displayed as expected");
 				}
 				text = ele.getText();
 			} catch (Exception e) {
-				reportStep("Element is not displayed", "FAIL");
+				System.out.println("Element is not displayed");
 				iOSdriver.closeApp();
 				iOSdriver.quit();
 				// TODO Auto-generated catch block
@@ -1667,14 +1667,13 @@ public class MobileWrapper extends Reporter {
 				WebDriverWait wait = new WebDriverWait(Androiddriver, 30);
 				wait.until(ExpectedConditions.elementToBeClickable(ele));
 				if (ele.isDisplayed()) {
-					reportStep("Element is displayed successfully", "PASS");
+					System.out.println("Element is displayed as expected");
 				}
 				text = ele.getText();
 			} catch (Exception e) {
-				reportStep("Element is not displayed", "FAIL");
+				System.out.println("Element is not displayed");
 				Androiddriver.closeApp();
 				Androiddriver.quit();
-				// TODO Auto-generated catch block
 				assertion.fail("Element is not displayed");
 
 				e.printStackTrace();
@@ -1848,6 +1847,54 @@ public class MobileWrapper extends Reporter {
 		}
 
 	}
+	
+	public void clickAccessibilityID(String accessibilityID) {
+		
+		if (platform.equalsIgnoreCase("iOS")) {
+		try {
+			WebElement ele = findElementByAccessibilityID(accessibilityID);
+			WebDriverWait wait = new WebDriverWait(iOSdriver, 30);
+			wait.until(ExpectedConditions.elementToBeClickable(ele));
+			if(ele.isDisplayed()) {
+				System.out.println("Element is displayed");
+			}
+			ele.click();
+		} catch (Exception e) {
+			System.out.println("Element is not displayed");
+			iOSdriver.closeApp();
+			iOSdriver.quit();
+			assertion.fail("Element is not displayed");
+		}
+		}
+		else if(platform.equalsIgnoreCase("android")){
+			try {
+				WebElement ele = findElementByAccessibilityID(accessibilityID);
+				WebDriverWait wait = new WebDriverWait(Androiddriver, 30);
+				wait.until(ExpectedConditions.elementToBeClickable(ele));
+				if(ele.isDisplayed()) {
+					System.out.println("Element is displayed");
+				}
+				ele.click();
+			} catch (Exception e) {
+				System.out.println("Element is not displayed");
+				Androiddriver.closeApp();
+				Androiddriver.quit();
+				assertion.fail("Element is not displayed");
+			}
+		}
+	}
+
+	public WebElement findElementByAccessibilityID(String val) {
+		WebElement ele=null;
+		if (platform.equalsIgnoreCase("iOS")) {
+		 ele=iOSdriver.findElementByAccessibilityId(val);
+		}
+		else if(platform.equalsIgnoreCase("android")){
+			 ele=Androiddriver.findElementByAccessibilityId(val);
+		}
+		return ele;
+	}
+	
 
 
 }

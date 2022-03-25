@@ -59,7 +59,7 @@
           </li>
             <li class="m-r-10">
                 <a href="#">
-                    <span class="badge badge-primary">Mar 22, 2022 05:45:48 PM</span>
+                    <span class="badge badge-primary">Mar 25, 2022 12:12:02 PM</span>
                 </a>
             </li>
         </ul>
@@ -126,8 +126,8 @@
 					<i class="fa fa-tag"></i>
 					</a>
 					<ul id="tag-toggle" class="dropdown-menu dropdown-md p-v-0">
-						<a class="dropdown-item" href="#">@driverAppLoginLogout</a>
-						<a class="dropdown-item" href="#">@loginLogoutFunctionality</a>
+						<a class="dropdown-item" href="#">@driverAppOperatorFlow</a>
+						<a class="dropdown-item" href="#">@operatorFlow</a>
 					</ul>
 				</li>
 			</ul>
@@ -136,29 +136,29 @@
 			<ul class="test-list-item">
 				<li class="test-item"  status="pass" test-id="1"
 					author=""
-					tag="@driverAppLoginLogout"
+					tag="@driverAppOperatorFlow"
 					device="">
 					<div class="status-avatar pass-bg">
 						<i class="fa fa-check text-white"></i>
 					</div>
 					<div class="open-test">
 						<div class="test-detail">
-							<p class="name">Login Logout functionality of DriverApp</p>
-							<p class="duration text-sm">0h 4m 42s+355ms</p>
-							<span class="datetime">17:45:49 PM</span>
+							<p class="name">Opertor flow of DriverApp</p>
+							<p class="duration text-sm">0h 0m 45s+111ms</p>
+							<span class="datetime">12:12:03 PM</span>
 						</div>
 					</div>
 					<div class="test-contents d-none">
 						<div class="detail-head">
 							<div class="p-v-10 d-inline-block">
 								<div class="info">
-									<h5 class="test-status text-pass">Login Logout functionality of DriverApp</h5>
-									<span class='badge badge-success'>03.22.2022 17:45:49</span>
-									<span class='badge badge-danger'>03.22.2022 17:50:32</span>
-									<span class='badge badge-default'>0h 4m 42s+355ms</span>
+									<h5 class="test-status text-pass">Opertor flow of DriverApp</h5>
+									<span class='badge badge-success'>03.25.2022 12:12:03</span>
+									<span class='badge badge-danger'>03.25.2022 12:12:48</span>
+									<span class='badge badge-default'>0h 0m 45s+111ms</span>
 								</div>
 								<div class="m-t-15">
-			<span class="badge badge-pill badge-default"><i class="fa fa-tag"></i> @driverAppLoginLogout</span>
+			<span class="badge badge-pill badge-default"><i class="fa fa-tag"></i> @driverAppOperatorFlow</span>
 								</div>
 								<div class="m-t-10 m-l-5">
 									
@@ -170,7 +170,7 @@
 	<div class="card">
 		<div class="card-header" role="tab">
 			<div class="card-title pl-3">
-				<div class="node">Validate login and logout functionality</div>
+				<div class="node">Operator flow</div>
 				<div class="status-avatar float-left pass-bg">
 					<i class="fa fa-check text-white"></i>
 				</div>
@@ -180,25 +180,18 @@
 						<div class="card-body l1">
 							<div class="card-header" role="tab">
 								<div class="card-title outline-child">
-									<div class="node">Validate login and logout functionality</div>
+									<div class="node">Operator flow</div>
 									<div class="status-avatar float-left pass-bg">
 										<i class="fa fa-check text-white"></i>
 									</div>
 								</div>
 							</div>
 							<div class="card-body collapse mt-3">
-									<div class="d-flex align-items-center justify-content-start when" title="Steps.LoginLogoutStepDef.i_log_into_the_application_in_for(java.lang.String,java.lang.String)">
+									<div class="d-flex align-items-center justify-content-start given" title="Steps.LoginLogoutStepDef.i_log_into_the_application_in_for(java.lang.String,java.lang.String)">
 										<span class="alert-icon pass-bg">
 											<i class="fa fa-check text-white"></i>
 										</span>
-										<span>When I log into the application in "android" for "LoginLogoutFunctionality"</span>
-									</div>
-				<div class="details"></div>
-									<div class="d-flex align-items-center justify-content-start and" title="Steps.LoginLogoutStepDef.i_validate_login_page_objects()">
-										<span class="alert-icon pass-bg">
-											<i class="fa fa-check text-white"></i>
-										</span>
-										<span>And I validate login page objects</span>
+										<span>Given I log into the application in "android" for "OperatorFlowFunctionality"</span>
 									</div>
 				<div class="details"></div>
 									<div class="d-flex align-items-center justify-content-start then" title="Steps.LoginLogoutStepDef.i_enter_username_and_password(java.lang.String,java.lang.String)">
@@ -222,6 +215,20 @@
 										<span>And I verify operator text in "android"</span>
 									</div>
 				<div class="details"></div>
+									<div class="d-flex align-items-center justify-content-start then" title="Steps.OperatorStepDef.i_click_on_operator(java.lang.String)">
+										<span class="alert-icon pass-bg">
+											<i class="fa fa-check text-white"></i>
+										</span>
+										<span>Then I click on "List items, All Star Services, List items" operator</span>
+									</div>
+				<div class="details"></div>
+									<div class="d-flex align-items-center justify-content-start and" title="Steps.OperatorStepDef.i_click_on_route(java.lang.String)">
+										<span class="alert-icon pass-bg">
+											<i class="fa fa-check text-white"></i>
+										</span>
+										<span>And I click on "List items, QuickPick, List items" route</span>
+									</div>
+				<div class="details"></div>
 									<div class="d-flex align-items-center justify-content-start then" title="Steps.LoginLogoutStepDef.i_click_logout()">
 										<span class="alert-icon pass-bg">
 											<i class="fa fa-check text-white"></i>
@@ -229,18 +236,11 @@
 										<span>Then I click logout</span>
 									</div>
 				<div class="details"></div>
-									<div class="d-flex align-items-center justify-content-start and" title="Steps.LoginLogoutStepDef.validate_if_logout_is_done_successfully()">
-										<span class="alert-icon pass-bg">
-											<i class="fa fa-check text-white"></i>
-										</span>
-										<span>And validate if logout is done successfully</span>
-									</div>
-				<div class="details"></div>
 									<div class="d-flex align-items-center justify-content-start and" title="Steps.LoginLogoutStepDef.update_execution_status_for_functionality(java.lang.String)">
 										<span class="alert-icon pass-bg">
 											<i class="fa fa-check text-white"></i>
 										</span>
-										<span>And Update execution status for "LoginLogoutFunctionality" functionality</span>
+										<span>And Update execution status for "OperatorFlowFunctionality" functionality</span>
 									</div>
 				<div class="details"></div>
 							</div>
@@ -290,7 +290,7 @@
 				<li class="test-item">
 					<div class="open-test">
 						<div class="test-detail">
-							<p class="name">@driverAppLoginLogout</p>
+							<p class="name">@driverAppOperatorFlow</p>
 							<p class="duration text-sm">2 tests</p>
 							<span class="datetime">
 							<span class='badge badge-success'>1</span>
@@ -302,7 +302,7 @@
 					</div>
 					<div class="test-contents d-none">
 						<div class="info">
-							<h4>@driverAppLoginLogout</h4>
+							<h4>@driverAppOperatorFlow</h4>
 							<span status="pass" class='badge badge-success'>1 passed</span>
 							
 							
@@ -323,9 +323,9 @@
 											<i class="fa fa-check text-white"></i>
 										</div>
 									</td>
-									<td>17:45:49 PM</td>
+									<td>12:12:03 PM</td>
 									<td class='linked' test-id='1'>
-										Login Logout functionality of DriverApp
+										Opertor flow of DriverApp
 									</td>
 								</tr>
 								<tr class="tag-test-status" status="pass">
@@ -334,11 +334,11 @@
 											<i class="fa fa-check text-white"></i>
 										</div>
 									</td>
-									<td>17:45:49 PM</td>
+									<td>12:12:03 PM</td>
 									<td class='linked' test-id='3'>
-										Validate login and logout functionality
+										Operator flow
 										<div class="">
-											<span class="badge badge-default">Login Logout functionality of DriverApp.Validate login and logout functionality</span>
+											<span class="badge badge-default">Opertor flow of DriverApp.Operator flow</span>
 										</div>
 									</td>
 								</tr>
@@ -349,7 +349,7 @@
 				<li class="test-item">
 					<div class="open-test">
 						<div class="test-detail">
-							<p class="name">@loginLogoutFunctionality</p>
+							<p class="name">@operatorFlow</p>
 							<p class="duration text-sm">2 tests</p>
 							<span class="datetime">
 							<span class='badge badge-success'>2</span>
@@ -361,7 +361,7 @@
 					</div>
 					<div class="test-contents d-none">
 						<div class="info">
-							<h4>@loginLogoutFunctionality</h4>
+							<h4>@operatorFlow</h4>
 							<span status="pass" class='badge badge-success'>2 passed</span>
 							
 							
@@ -382,11 +382,11 @@
 											<i class="fa fa-check text-white"></i>
 										</div>
 									</td>
-									<td>17:45:49 PM</td>
+									<td>12:12:03 PM</td>
 									<td class='linked' test-id='2'>
-										Validate login and logout functionality
+										Operator flow
 										<div class="">
-											<span class="badge badge-default">Login Logout functionality of DriverApp.Validate login and logout functionality</span>
+											<span class="badge badge-default">Opertor flow of DriverApp.Operator flow</span>
 										</div>
 									</td>
 								</tr>
@@ -396,11 +396,11 @@
 											<i class="fa fa-check text-white"></i>
 										</div>
 									</td>
-									<td>17:45:49 PM</td>
+									<td>12:12:03 PM</td>
 									<td class='linked' test-id='3'>
-										Validate login and logout functionality
+										Operator flow
 										<div class="">
-											<span class="badge badge-default">Login Logout functionality of DriverApp.Validate login and logout functionality</span>
+											<span class="badge badge-default">Opertor flow of DriverApp.Operator flow</span>
 										</div>
 									</td>
 								</tr>
@@ -537,7 +537,7 @@
 					<div class="media justify-content-between">
 						<div class="card-header">
 							<h6 class="card-title">Start</h6>
-							<h4 class="font-weight-light mt-4">Mar 22, 2022 05:45:48 PM</h4>
+							<h4 class="font-weight-light mt-4">Mar 25, 2022 12:12:02 PM</h4>
 							<span class="text-semibold text-success font-size-15">
 						</div>
 						<div class="align-self-end">
@@ -553,7 +553,7 @@
 					<div class="media justify-content-between">
 						<div class="card-header">
 							<h6 class="card-title">Duration</h6>
-							<h4 class="font-weight-light mt-4">0h 4m 54s+130ms</h4>
+							<h4 class="font-weight-light mt-4">0h 0m 48s+197ms</h4>
 							<span class="text-semibold font-size-15">
 						</div>
 						<div class="align-self-end">
@@ -597,7 +597,7 @@
 						</thead>
 						<tbody>
 							<tr>
-								<td>@driverAppLoginLogout</td>
+								<td>@driverAppOperatorFlow</td>
 								<td>1</td>
 								<td>0</td>
 								<td>0</td>
@@ -606,7 +606,7 @@
 								</td>
 							</tr>
 							<tr>
-								<td>@loginLogoutFunctionality</td>
+								<td>@operatorFlow</td>
 								<td>2</td>
 								<td>0</td>
 								<td>0</td>
@@ -665,7 +665,7 @@
 </script>
 <script>
 	var timeline = {
-	        "Login Logout functionality of DriverApp":282.355
+	        "Opertor flow of DriverApp":45.111
 	};
 </script>
                 </div>

@@ -141,6 +141,11 @@ public class ConfigFileReader {
 			androidBuildApp = "0.0.3";
 			return androidBuildApp;
 		}
+		else if(androidAppURL.equalsIgnoreCase("bs://681686fcad0a6a0c8d5114863e97f0b24030137a")) {
+			androidBuildApp = "0.0.10";
+			return androidBuildApp;
+		}
+		
 
 		else
 			throw new RuntimeException("Android App URL is not specified in the Configuration.properties file.");

@@ -22,9 +22,9 @@ public class Hooks extends MobileWrapper {
 	@AfterStep
 	public void as(Scenario scenario) throws IOException {
 		if (iOSdriver != null) {
-			scenario.attach(getByteScreenshot("iOS"), "img/png", "test execution");
+			getByteScreenshot("iOS");
 		} else if (Androiddriver != null) {
-			scenario.attach(getByteScreenshot("android"), "img/png", scenario.getName());
+			getByteScreenshot("android");
 
 		}
 	}
@@ -53,11 +53,13 @@ public class Hooks extends MobileWrapper {
 		byte[] FileContent = null;
 		if (platform.equalsIgnoreCase("iOS")) {
 			File src = ((TakesScreenshot) iOSdriver).getScreenshotAs(OutputType.FILE);
-			FileContent = FileUtils.readFileToByteArray(src);
+			String path = System.getProperty("user.dir") + "/test-output/StepScreenshots/" + src.getName();
+			org.apache.commons.io.FileUtils.copyFile(src, new File(path));
+			FileContent = FileUtils.readFileToByteArray(new File(path));
 
 		} else if (platform.equalsIgnoreCase("android")) {
 			File src = ((TakesScreenshot) Androiddriver).getScreenshotAs(OutputType.FILE);
-			String path = System.getProperty("user.dir") + "/test-output/ScreenshotScenarios/" + src.getName();
+			String path = System.getProperty("user.dir") + "/test-output/StepScreenshots/" + src.getName();
 			org.apache.commons.io.FileUtils.copyFile(src, new File(path));
 			FileContent = FileUtils.readFileToByteArray(new File(path));
 		}

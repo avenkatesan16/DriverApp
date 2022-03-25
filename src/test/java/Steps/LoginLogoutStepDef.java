@@ -5,8 +5,8 @@ import java.io.UnsupportedEncodingException;
 import org.openqa.selenium.JavascriptExecutor;
 
 import Pages.EmailSend;
-import Pages.LoginLogoutPageAndroid;
-import Pages.LoginLogoutPageiOS;
+import androidPages.LoginLogoutPageAndroid;
+import iOSPages.LoginLogoutPageiOS;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -468,7 +468,18 @@ public class LoginLogoutStepDef extends MobileWrapper {
 						"browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"passed\", \"reason\": \"Date Page Functionality Validation Android Passed\"}}");
 
 			}
+		case "OperatorFlowFunctionality":
+			if (osVersion.equalsIgnoreCase("iOS")) {
 
+				jse.executeScript(
+						"browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"passed\", \"reason\": \"Operaor flow Functionality Validation iOS Passed\"}}");
+
+			} else if (osVersion.equalsIgnoreCase("android")) {
+
+				jse.executeScript(
+						"browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"passed\", \"reason\": \"Operaor flow Functionality Validation Android Passed\"}}");
+
+			}
 			break;
 		}
 	}

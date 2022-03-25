@@ -1,31 +1,27 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/java/Features/LoginLogout.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/java/Features/Operator.feature");
 formatter.feature({
-  "name": "Login Logout functionality of DriverApp",
+  "name": "Opertor flow of DriverApp",
   "description": "",
   "keyword": "Feature",
   "tags": [
     {
-      "name": "@driverAppLoginLogout"
+      "name": "@driverAppOperatorFlow"
     }
   ]
 });
 formatter.scenarioOutline({
-  "name": "Validate login and logout functionality",
+  "name": "Operator flow",
   "description": "",
   "keyword": "Scenario Outline",
   "tags": [
     {
-      "name": "@loginLogoutFunctionality"
+      "name": "@operatorFlow"
     }
   ]
 });
 formatter.step({
   "name": "I log into the application in \"\u003cOSVersion\u003e\" for \"\u003cFunctionality\u003e\"",
-  "keyword": "When "
-});
-formatter.step({
-  "name": "I validate login page objects",
-  "keyword": "And "
+  "keyword": "Given "
 });
 formatter.step({
   "name": "I enter \"\u003cusername\u003e\" and \"\u003cpassword\u003e\"",
@@ -40,12 +36,16 @@ formatter.step({
   "keyword": "And "
 });
 formatter.step({
-  "name": "I click logout",
+  "name": "I click on \"\u003cOperator\u003e\" operator",
   "keyword": "Then "
 });
 formatter.step({
-  "name": "validate if logout is done successfully",
+  "name": "I click on \"\u003cRoute\u003e\" route",
   "keyword": "And "
+});
+formatter.step({
+  "name": "I click logout",
+  "keyword": "Then "
 });
 formatter.step({
   "name": "Update execution status for \"\u003cFunctionality\u003e\" functionality",
@@ -61,6 +61,8 @@ formatter.examples({
         "OSVersion",
         "username",
         "password",
+        "Operator",
+        "Route",
         "Functionality"
       ]
     },
@@ -69,43 +71,32 @@ formatter.examples({
         "android",
         "skaushik@cantaloupe.com",
         "Saurabh@123",
-        "LoginLogoutFunctionality"
+        "List items, All Star Services, List items",
+        "List items, QuickPick, List items",
+        "OperatorFlowFunctionality"
       ]
     }
   ]
 });
 formatter.scenario({
-  "name": "Validate login and logout functionality",
+  "name": "Operator flow",
   "description": "",
   "keyword": "Scenario Outline",
   "tags": [
     {
-      "name": "@driverAppLoginLogout"
+      "name": "@driverAppOperatorFlow"
     },
     {
-      "name": "@loginLogoutFunctionality"
+      "name": "@operatorFlow"
     }
   ]
 });
 formatter.step({
-  "name": "I log into the application in \"android\" for \"LoginLogoutFunctionality\"",
-  "keyword": "When "
+  "name": "I log into the application in \"android\" for \"OperatorFlowFunctionality\"",
+  "keyword": "Given "
 });
 formatter.match({
   "location": "Steps.LoginLogoutStepDef.i_log_into_the_application_in_for(java.lang.String,java.lang.String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.afterstep({
-  "status": "passed"
-});
-formatter.step({
-  "name": "I validate login page objects",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "Steps.LoginLogoutStepDef.i_validate_login_page_objects()"
 });
 formatter.result({
   "status": "passed"
@@ -153,6 +144,32 @@ formatter.afterstep({
   "status": "passed"
 });
 formatter.step({
+  "name": "I click on \"List items, All Star Services, List items\" operator",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "Steps.OperatorStepDef.i_click_on_operator(java.lang.String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.afterstep({
+  "status": "passed"
+});
+formatter.step({
+  "name": "I click on \"List items, QuickPick, List items\" route",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "Steps.OperatorStepDef.i_click_on_route(java.lang.String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.afterstep({
+  "status": "passed"
+});
+formatter.step({
   "name": "I click logout",
   "keyword": "Then "
 });
@@ -166,20 +183,7 @@ formatter.afterstep({
   "status": "passed"
 });
 formatter.step({
-  "name": "validate if logout is done successfully",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "Steps.LoginLogoutStepDef.validate_if_logout_is_done_successfully()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.afterstep({
-  "status": "passed"
-});
-formatter.step({
-  "name": "Update execution status for \"LoginLogoutFunctionality\" functionality",
+  "name": "Update execution status for \"OperatorFlowFunctionality\" functionality",
   "keyword": "And "
 });
 formatter.match({
